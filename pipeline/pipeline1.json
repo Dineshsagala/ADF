@@ -15,8 +15,45 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"enableStaging": false
-				}
+					"source": {
+						"type": "ExcelSource",
+						"storeSettings": {
+							"type": "AzureBlobStorageReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						}
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "Name",
+									"type": "String"
+								},
+								"sink": {
+									"path": "$['Column_1']"
+								}
+							},
+							{
+								"source": {
+									"name": "Age",
+									"type": "Int64"
+								},
+								"sink": {
+									"path": "$['Column_2']"
+								}
+							}
+						]
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "SampleDate",
+						"type": "DatasetReference"
+					}
+				]
 			}
 		],
 		"annotations": []
