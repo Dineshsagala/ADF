@@ -1,0 +1,50 @@
+{
+	"name": "CitiesExcel",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Excel",
+		"typeProperties": {
+			"sheetName": "Sheet1",
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "Cities.xlsx",
+				"container": "input"
+			},
+			"firstRowAsHeader": true
+		},
+		"schema": [
+			{
+				"name": "CityID",
+				"type": "String"
+			},
+			{
+				"name": "CityName",
+				"type": "String"
+			},
+			{
+				"name": "StateProvinceID",
+				"type": "String"
+			},
+			{
+				"name": "LatestRecordedPopulation",
+				"type": "String"
+			},
+			{
+				"name": "LastEditedBy",
+				"type": "String"
+			},
+			{
+				"name": "ValidFrom",
+				"type": "String"
+			},
+			{
+				"name": "ValidTo",
+				"type": "String"
+			}
+		]
+	}
+}
