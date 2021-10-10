@@ -1,0 +1,20 @@
+{
+	"name": "dataflow1",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "CitiesExcel",
+						"type": "DatasetReference"
+					},
+					"name": "source1"
+				}
+			],
+			"sinks": [],
+			"transformations": [],
+			"script": "source(output(\n\t\tCityID as integer '000',\n\t\tCityName as string,\n\t\tStateProvinceID as integer '000',\n\t\tLatestRecordedPopulation as integer '000',\n\t\tLastEditedBy as string,\n\t\tValidFrom as date 'yyyy-MM-dd',\n\t\tValidTo as date 'yyyy-MM-dd'\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> source1"
+		}
+	}
+}
