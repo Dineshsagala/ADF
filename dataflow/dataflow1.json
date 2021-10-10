@@ -12,9 +12,17 @@
 					"name": "source1"
 				}
 			],
-			"sinks": [],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "CitiesCSV",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				}
+			],
 			"transformations": [],
-			"script": "source(output(\n\t\tCityID as integer '000',\n\t\tCityName as string,\n\t\tStateProvinceID as integer '000',\n\t\tLatestRecordedPopulation as integer '000',\n\t\tLastEditedBy as string,\n\t\tValidFrom as date 'yyyy-MM-dd',\n\t\tValidTo as date 'yyyy-MM-dd'\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> source1"
+			"script": "source(output(\n\t\tCityID as integer '000',\n\t\tCityName as string,\n\t\tStateProvinceID as integer '000',\n\t\tLatestRecordedPopulation as integer '000',\n\t\tLastEditedBy as string,\n\t\tValidFrom as date 'yyyy-MM-dd',\n\t\tValidTo as date 'yyyy-MM-dd'\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> source1\nsource1 sink(allowSchemaDrift: true,\n\tvalidateSchema: false) ~> sink1"
 		}
 	}
 }
