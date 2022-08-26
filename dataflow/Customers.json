@@ -51,6 +51,7 @@
 				"source1 filter(toInteger( trim( replace( replace(AnnualIncome, ',', ''), '$', '' ) ) ) >= 100000) ~> filter1",
 				"filter1 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
+				"     filePattern:(concat( toString(currentDate()), '.csv' )),",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true) ~> sink1"
 			]

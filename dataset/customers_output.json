@@ -10,10 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": {
-					"value": "@concat('utcnow()','.csv')",
-					"type": "Expression"
-				},
+				"folderPath": "@concat('utcnow()','.csv')",
 				"container": "adventureworksoutput"
 			},
 			"columnDelimiter": ",",
